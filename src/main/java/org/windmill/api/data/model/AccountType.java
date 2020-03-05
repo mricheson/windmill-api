@@ -1,12 +1,18 @@
-package org.windmill.api.model;
+package org.windmill.api.data.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-public class AccountType {
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+public class AccountType{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
