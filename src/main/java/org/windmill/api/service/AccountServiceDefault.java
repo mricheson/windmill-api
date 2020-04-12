@@ -12,14 +12,17 @@ public class AccountServiceDefault implements AccountService {
 
 	@Autowired
 	private AccountRepository accountRepository;
-	
+
 	@Override
 	public Account create(Account account) {
 		return accountRepository.save(account);
 	}
 
 	@Override
-	public Account update(Account account) {
+	public Account update(Long id, Account account) {
+		if (!id.equals(account.getId())) {
+			throw new RuntimeException("account ids must match");
+		}
 		return accountRepository.save(account);
 	}
 

@@ -11,34 +11,39 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
-	
+
+	public Account(String account, Long insituationId, Long accountTypeId, boolean activeIndicator) {
+		this.account = account;
+		this.institution = new Institution(insituationId, null);
+		this.accountType = new AccountType(accountTypeId, null, false);
+		this.activeIndicator = activeIndicator;
+	}
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "institution_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "institution_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Institution institution;
-	
+
 	private String account;
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "accountType_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "accountType_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private AccountType accountType;
-	
+
 	private boolean activeIndicator;
-	
+
 }
