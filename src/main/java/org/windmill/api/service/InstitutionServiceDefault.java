@@ -12,14 +12,17 @@ public class InstitutionServiceDefault implements InstitutionService {
 
 	@Autowired
 	private InsititutionRepository insititutionRepository;
-	
+
 	@Override
 	public Institution create(Institution institution) {
 		return insititutionRepository.save(institution);
 	}
 
 	@Override
-	public Institution uupdate(Institution institution) {
+	public Institution update(Long id, Institution institution) {
+		if (!id.equals(institution.getId())) {
+			throw new RuntimeException("institution ids must match");
+		}
 		return insititutionRepository.save(institution);
 	}
 

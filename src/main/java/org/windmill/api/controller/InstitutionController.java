@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.windmill.api.data.model.AccountType;
-import org.windmill.api.service.AccountTypeService;
+import org.windmill.api.data.model.Institution;
+import org.windmill.api.service.InstitutionService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.java.Log;
 
 @RestController
-@Tag(name = "Account Types")
-@RequestMapping("/api/accounttypes/")
+@RequestMapping("/api/institutions/")
+@Tag(name = "Institutions")
 @Log
-public class AccountTypeController {
+public class InstitutionController {
 
 	@Autowired
-	private AccountTypeService accountTypeService;
+	private InstitutionService institutionService;
 
 	@GetMapping(produces = "application/json")
-	public List<AccountType> list() {
+	public List<Institution> list() {
 		try {
-			return accountTypeService.list();
+			return institutionService.list();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,9 +37,9 @@ public class AccountTypeController {
 	}
 
 	@PutMapping(value = "{id}", consumes = "application/json", produces = "application/json")
-	public AccountType update(@PathVariable("id") Long id, @RequestBody AccountType accountType) {
+	public Institution update(@PathVariable("id") Long id, @RequestBody Institution institution) {
 		try {
-			return accountTypeService.update(id, accountType);
+			return institutionService.update(id, institution);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,9 +48,9 @@ public class AccountTypeController {
 	}
 
 	@PostMapping(consumes = "application/json", produces = "application/json")
-	public AccountType create(@RequestBody AccountType accountType) {
+	public Institution create(@RequestBody Institution institution) {
 		try {
-			return accountTypeService.create(accountType);
+			return institutionService.create(institution);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
