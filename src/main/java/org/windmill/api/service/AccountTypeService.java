@@ -6,6 +6,6 @@ import org.windmill.api.data.model.AccountType;
 
 public interface AccountTypeService {
 	AccountType create(AccountType accountType);
-	AccountType update(AccountType accountType);
+	AccountType update(Long id, AccountType accountType);
 	List<AccountType> list();
 }

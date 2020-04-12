@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +34,9 @@ public class AccountTypeController {
 	}
 	
 	@PutMapping("/{id}")
-	public AccountType update(AccountType accountType){
+	public AccountType update(@PathVariable("id") Long id, AccountType accountType){
 		try {
-			return accountTypeService.update(accountType);
+			return accountTypeService.update(id, accountType);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
