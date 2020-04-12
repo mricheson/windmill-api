@@ -23,7 +23,7 @@ public class AccountTypeServiceDefault implements AccountTypeService{
 		if(!id.equals(accountType.getId())) {
 			throw new RuntimeException("account type id must match");
 		}
-		return accountTypeRepository.saveAndFlush(accountType);
+		return accountTypeRepository.save(accountType);
 	}
 
 	@Override
