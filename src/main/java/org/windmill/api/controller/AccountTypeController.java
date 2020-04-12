@@ -43,7 +43,7 @@ public class AccountTypeController {
 		}
 	}
 	
-	@PostMapping("/{id}")
+	@PostMapping
 	public AccountType create(AccountType accountType){
 		try {
 			return accountTypeService.create(accountType);
