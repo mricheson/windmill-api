@@ -17,8 +17,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.java.Log;
 
 @RestController
-@Tag(name = "Budget")
-@RequestMapping("/api/budget/group/")
+@Tag(name = "Budgets")
+@RequestMapping("/api/budgets/groups/")
 @Log
 public class BudgetGroupController {
 
