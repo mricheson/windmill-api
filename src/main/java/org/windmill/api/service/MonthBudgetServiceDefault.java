@@ -8,19 +8,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.windmill.api.data.model.BudgetTemplate;
 import org.windmill.api.data.model.MonthBudget;
-import org.windmill.api.data.model.MonthBudgetPlan;
+import org.windmill.api.data.model.MonthBudgetCategory;
 import org.windmill.api.data.repository.BudgetTemplateRepository;
-import org.windmill.api.data.repository.MonthBudgetPlanRepository;
+import org.windmill.api.data.repository.MonthBudgetCategoryRepository;
 import org.windmill.api.data.repository.MonthBudgetRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class MonthBudgetServiceDefault implements MonthBudgetService {
 
 	@Autowired
 	private MonthBudgetRepository monthBudgetRepository;
 
 	@Autowired
-	private MonthBudgetPlanRepository monthBudgetPlanRepository;
+	private MonthBudgetCategoryRepository monthBudgetPlanRepository;
 
 	@Autowired
 	private BudgetTemplateRepository budgetTemplateRepository;
@@ -63,8 +66,8 @@ public class MonthBudgetServiceDefault implements MonthBudgetService {
 		return LocalDate.of(year, month, 1);
 	}
 
-	MonthBudgetPlan buildPlan(BudgetTemplate budgetTemplate, MonthBudget monthBudget) {
-		return new MonthBudgetPlan(budgetTemplate.getAmount(), budgetTemplate.getBudgetCategory(),
+	MonthBudgetCategory buildPlan(BudgetTemplate budgetTemplate, MonthBudget monthBudget) {
+		return new MonthBudgetCategory(budgetTemplate.getAmount(), budgetTemplate.getBudgetCategory(),
 				budgetTemplate.getDescription(), monthBudget);
 	}
 }

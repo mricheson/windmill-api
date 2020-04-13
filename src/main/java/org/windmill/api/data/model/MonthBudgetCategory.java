@@ -19,9 +19,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MonthBudgetPlan {
+public class MonthBudgetCategory {
 
-	public MonthBudgetPlan(BigDecimal amount, BudgetCategory budgetCategory, String description,
+	public MonthBudgetCategory(BigDecimal amount, BudgetCategory budgetCategory, String description,
 			MonthBudget monthBudget) {
 		this.amount = amount;
 		this.monthBudget = monthBudget;

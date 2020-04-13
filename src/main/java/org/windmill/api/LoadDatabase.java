@@ -1,5 +1,7 @@
 package org.windmill.api;
 
+import java.math.BigDecimal;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,11 +9,13 @@ import org.windmill.api.data.model.Account;
 import org.windmill.api.data.model.AccountType;
 import org.windmill.api.data.model.BudgetCategory;
 import org.windmill.api.data.model.BudgetGroup;
+import org.windmill.api.data.model.BudgetTemplate;
 import org.windmill.api.data.model.Institution;
 import org.windmill.api.data.repository.AccountRepository;
 import org.windmill.api.data.repository.AccountTypeRepository;
 import org.windmill.api.data.repository.BudgetCategoryRepository;
 import org.windmill.api.data.repository.BudgetGroupRepository;
+import org.windmill.api.data.repository.BudgetTemplateRepository;
 import org.windmill.api.data.repository.InsititutionRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +27,8 @@ class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(AccountTypeRepository accountTypeRepository,
 			InsititutionRepository instituationRepository, AccountRepository accountRepository,
-			BudgetCategoryRepository budgetCategoryRepository, BudgetGroupRepository budgetGroupRepository) {
+			BudgetCategoryRepository budgetCategoryRepository, BudgetGroupRepository budgetGroupRepository,
+			BudgetTemplateRepository budgetTemplateRepository) {
 		return args -> {
 			AccountType checking = accountTypeRepository.save(new AccountType("Checking", false));
 			log.info("Preloading " + checking);
@@ -55,6 +60,12 @@ class LoadDatabase {
 					.save(new BudgetCategory("Bonus", 1, fixedIncome, preferred, false));
 			log.info("Preloading " + bonus);
 
+			BudgetTemplate paycheck1 = budgetTemplateRepository
+					.save(new BudgetTemplate(new BigDecimal("1000.00"), "some desc", dmi));
+			log.info("Preloading " + paycheck1);
+			BudgetTemplate paycheck2 = budgetTemplateRepository
+					.save(new BudgetTemplate(new BigDecimal("1000.01"), "some desc", dmi));
+			log.info("Preloading " + paycheck2);
 		};
 	}
 }
