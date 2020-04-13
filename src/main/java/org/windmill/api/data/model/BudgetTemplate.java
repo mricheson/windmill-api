@@ -1,7 +1,8 @@
 package org.windmill.api.data.model;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ import lombok.extern.java.Log;
 @Log
 public class BudgetTemplate {
 
-	public BudgetTemplate(BigInteger amount, String description, BudgetCategory budgetCategory) {
+	public BudgetTemplate(BigDecimal amount, String description, BudgetCategory budgetCategory) {
 		this.amount = amount;
 		this.description = description;
 		this.budgetCategory = budgetCategory;
@@ -35,7 +36,8 @@ public class BudgetTemplate {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private BigInteger amount;
+	@Column(precision = 10, scale = 2)
+	private BigDecimal amount;
 	private String description;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)

@@ -1,8 +1,9 @@
 package org.windmill.api.data.model;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ import lombok.extern.java.Log;
 @Log
 public class SavingsEntry {
 
-	public SavingsEntry(BigInteger amount, LocalDate date, String description, BudgetCategory budgetCategory) {
+	public SavingsEntry(BigDecimal amount, LocalDate date, String description, BudgetCategory budgetCategory) {
 		this.amount = amount;
 		this.description = description;
 		this.budgetCategory = budgetCategory;
@@ -36,8 +37,8 @@ public class SavingsEntry {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	private BigInteger amount;
+	@Column(precision = 10, scale = 2)
+	private BigDecimal amount;
 	private String description;
 	private LocalDate date;
 
