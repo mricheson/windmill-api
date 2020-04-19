@@ -83,6 +83,9 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 				&& authorizedURI.getPort() == clientRedirectUri.getPort()) {
 			return true;
 		}
+
+		logger.warn("Redirect " + uri + " does not match the authorized redirect of "
+				+ appProperties.getOauth2().getAuthorizedRedirect());
 		return false;
 	}
 }
