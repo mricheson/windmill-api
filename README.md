@@ -12,3 +12,7 @@ https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-2/
 https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-3/
 
 https://github.com/callicoder/spring-boot-react-oauth2-social-login-demo
+
+##Create Application Key
+Generator: https://www.guidgenerator.com/online-guid-generator.aspx
+Base64 Encoder: https://www.base64encode.org/
