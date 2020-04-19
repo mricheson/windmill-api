@@ -20,4 +20,4 @@ app:
     tokenSecret: ${APP_AUTH_SECRET}
     tokenExpirationMsec: ${APP_AUTH_EXPIRATION}
   oauth2:
-    authorizedRedirectUris: ${APP_AUTH_REDIRECTS}
+    authorizedRedirect: ${APP_AUTH_REDIRECT}
