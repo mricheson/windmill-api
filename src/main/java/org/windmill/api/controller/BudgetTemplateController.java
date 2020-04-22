@@ -18,7 +18,7 @@ import lombok.extern.java.Log;
 
 @RestController
 @Tag(name = "Budgets")
-@RequestMapping("/api/budgest/tempates/")
+@RequestMapping("/api/budgets/templates/")
 @Log
 public class BudgetTemplateController {
 
