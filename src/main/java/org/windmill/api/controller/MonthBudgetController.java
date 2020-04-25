@@ -17,14 +17,12 @@ import lombok.extern.java.Log;
 
 @RestController
 @Tag(name = "Month Budgets")
-@RequestMapping("/api/budgets")
+@RequestMapping("/api/budgets/")
 @Log
 public class MonthBudgetController {
 
 	@Autowired
 	private MonthBudgetService monthBudgetService;
-
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<MonthBudget> list() {
