@@ -16,3 +16,9 @@ https://github.com/callicoder/spring-boot-react-oauth2-social-login-demo
 ##Create Application Key
 Generator: https://www.guidgenerator.com/online-guid-generator.aspx
 Base64 Encoder: https://www.base64encode.org/
+
+##Connect to Heroku DB Remotely
+https://medium.com/@vapurrmaid/getting-started-with-heroku-postgres-and-pgadmin-run-on-part-2-90d9499ed8fb
+
+##Reset PostGres Sequence
+ALTER SEQUENCE product_id_seq RESTART WITH 1453
