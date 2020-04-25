@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +31,8 @@ public class MonthBudgetCategory {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "monthBudgetCategory_generator")
+	@SequenceGenerator(name = "monthBudgetCategory_generator", sequenceName = "monthBudgetCategory_seq", allocationSize = 50)
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)

@@ -1,10 +1,19 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
-    database-platform: org.hibernate.dialect.H2Dialect
+    # url: jdbc:h2:mem:testdb
+    # driverClassName: org.h2.Driver
+    # username: sa
+    # password: password
+    # database-platform: org.hibernate.dialect.H2Dialect
+    url: jdbc:postgresql://localhost:5432/windmill
+    username: windmill
+    password: windmill
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
   security:
     oauth2:
       client:

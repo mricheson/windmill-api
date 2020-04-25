@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +24,8 @@ import lombok.NoArgsConstructor;
 public class Transaction {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_generator")
+	@SequenceGenerator(name = "transaction_generator", sequenceName = "transaction_seq", allocationSize = 50)
 	private Long id;
 
 	private LocalDate transactionDate;

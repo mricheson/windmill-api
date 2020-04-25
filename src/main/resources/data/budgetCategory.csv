@@ -1,0 +1,49 @@
+0	Orchard	0	FALSE	0	
+4	Utilities	2	FALSE	1	
+5	Bonus	1	FALSE	1	
+6	Interest	0	FALSE	1	
+7	Rent	1	FALSE	0	
+8	Mortgage	0	FALSE	2	
+9	Mortgate Principal	1	FALSE	2	
+10	Car Payment	2	FALSE	2	
+11	Car Principal	3	FALSE	2	
+12	Health Insurance	4	FALSE	2	
+13	Travel ($250)	5	FALSE	3	10
+14	Property Taxes ($110)	0	FALSE	3	10
+15	Home Insurance ($92)	1	FALSE	3	10
+16	Car Insurance ($117)	3	FALSE	3	10
+17	Car ($350)	2	FALSE	3	10
+18	Car Registration ($23)	4	FALSE	3	10
+19	Vet ($85)	6	FALSE	3	10
+20	Entertainment ($50)	7	FALSE	3	10
+21	Gym Membership ($12.50)	8	FALSE	3	10
+22	Roth IRA ($457.50)	0	FALSE	4	8
+23	Investments	1	FALSE	4	10
+24	HSA	2	FALSE	4	12
+25	FSA	3	FALSE	4	13
+26	House ($125)	0	FALSE	6	10
+27	Down Payment	1	FALSE	6	10
+28	Personal Savings	2	FALSE	6	10
+29	Emergency Fund	3	FALSE	6	10
+30	Natural Gas	0	TRUE	7	
+31	Electric	1	TRUE	7	
+32	Internet	3	TRUE	7	
+33	Trash	4	TRUE	7	
+34	Water	2	TRUE	7	
+35	Dining Out	0	FALSE	8	
+36	Groceries	1	FALSE	8	
+37	Gas	3	FALSE	8	
+38	Haircut	4	FALSE	8	
+39	Home Improvement	5	FALSE	8	
+40	Clothing	6	FALSE	8	
+41	Home Goods	7	FALSE	8	
+42	Fee	9	FALSE	8	
+43	Entertainment	8	FALSE	8	
+44	Miscellaneous	10	FALSE	8	
+45	Medical Expense	1	FALSE	10	
+46	Business Expense	0	FALSE	10	
+47	401k	4	FALSE	6	9
+48	Traditional Savings	6	FALSE	6	1
+49	HSA Investment	4	FALSE	4	11
+50	Traditional Checking	5	FALSE	6	0
+51	Housekeeping	0	FALSE	7	

@@ -3,7 +3,6 @@ package org.windmill.api;
 import java.math.BigDecimal;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.windmill.api.data.model.Account;
 import org.windmill.api.data.model.AccountType;
@@ -24,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class LoadDatabase {
 
-	@Bean
+//	@Bean
 	CommandLineRunner initDatabase(AccountTypeRepository accountTypeRepository,
 			InsititutionRepository instituationRepository, AccountRepository accountRepository,
 			BudgetCategoryRepository budgetCategoryRepository, BudgetGroupRepository budgetGroupRepository,

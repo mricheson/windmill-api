@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -33,7 +34,8 @@ public class BudgetTemplate {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "budgetTemplate_generator")
+	@SequenceGenerator(name = "budgetTemplate_generator", sequenceName = "budgetTemplate_seq", allocationSize = 50)
 	private Long id;
 
 	@Column(precision = 10, scale = 2)

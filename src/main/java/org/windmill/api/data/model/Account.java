@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -29,7 +30,8 @@ public class Account {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_generator")
+	@SequenceGenerator(name = "account_generator", sequenceName = "account_seq", allocationSize = 50)
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
