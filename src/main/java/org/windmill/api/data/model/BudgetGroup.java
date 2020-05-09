@@ -16,17 +16,19 @@ import lombok.extern.java.Log;
 @NoArgsConstructor
 @AllArgsConstructor
 @Log
-public class AccountType {
+public class BudgetGroup {
 
-	public AccountType(String type, boolean savingsIndicator) {
+	public BudgetGroup(String name, Integer position, boolean savingsIndicator) {
 		this.savingsIndicator = savingsIndicator;
-		this.type = type;
+		this.name = name;
+		this.position = position;
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accountType_generator")
-	@SequenceGenerator(name = "accountType_generator", sequenceName = "accountType_seq", allocationSize = 50)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "budgetGroup_generator")
+	@SequenceGenerator(name = "budgetGroup_generator", sequenceName = "budgetGroup_seq", allocationSize = 50)
 	private Long id;
-	private String type;
+	private String name;
 	private boolean savingsIndicator;
+	private Integer position;
 }

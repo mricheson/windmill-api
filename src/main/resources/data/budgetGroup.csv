@@ -1,0 +1,10 @@
+0	Fixed Income	0	FALSE
+1	Variable Income	1	FALSE
+2	Fixed Expenses	4	FALSE
+3	Future Expenses	5	TRUE
+4	Fixed Savings	2	TRUE
+6	Future Savings	3	TRUE
+7	Utilities	6	FALSE
+8	Variable Expenses	7	FALSE
+9	Unbudgeted Expenses	8	FALSE
+10	Reimbursements	9	FALSE

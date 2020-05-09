@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.windmill.api.data.model.AccountType;
-import org.windmill.api.service.AccountTypeService;
+import org.windmill.api.data.model.BudgetCategory;
+import org.windmill.api.service.BudgetCategoryService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.java.Log;
 
 @RestController
-@Tag(name = "Account Types")
-@RequestMapping("/api/accounttypes/")
+@Tag(name = "Budgets")
+@RequestMapping("/api/budgets/categories/")
 @Log
-public class AccountTypeController {
+public class BudgetCategoryController {
 
 	@Autowired
-	private AccountTypeService accountTypeService;
+	private BudgetCategoryService budgetCategoryService;
 
 	@GetMapping(produces = "application/json")
-	public List<AccountType> list() {
+	public List<BudgetCategory> list() {
 		try {
-			return accountTypeService.list();
+			return budgetCategoryService.list();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,9 +37,9 @@ public class AccountTypeController {
 	}
 
 	@PutMapping(value = "{id}", consumes = "application/json", produces = "application/json")
-	public AccountType update(@PathVariable("id") Long id, @RequestBody AccountType accountType) {
+	public BudgetCategory update(@PathVariable("id") Long id, @RequestBody BudgetCategory budgetCategory) {
 		try {
-			return accountTypeService.update(id, accountType);
+			return budgetCategoryService.update(id, budgetCategory);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,9 +48,9 @@ public class AccountTypeController {
 	}
 
 	@PostMapping(consumes = "application/json", produces = "application/json")
-	public AccountType create(@RequestBody AccountType accountType) {
+	public BudgetCategory create(@RequestBody BudgetCategory budgetCategory) {
 		try {
-			return accountTypeService.create(accountType);
+			return budgetCategoryService.create(budgetCategory);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

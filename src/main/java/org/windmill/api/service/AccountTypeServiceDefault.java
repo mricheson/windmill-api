@@ -19,7 +19,10 @@ public class AccountTypeServiceDefault implements AccountTypeService{
 	}
 
 	@Override
-	public AccountType update(AccountType accountType) {
+	public AccountType update(Long id, AccountType accountType) {
+		if(!id.equals(accountType.getId())) {
+			throw new RuntimeException("account type id must match");
+		}
 		return accountTypeRepository.save(accountType);
 	}
 

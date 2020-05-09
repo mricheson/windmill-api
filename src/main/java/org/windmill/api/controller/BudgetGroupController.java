@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.windmill.api.data.model.AccountType;
-import org.windmill.api.service.AccountTypeService;
+import org.windmill.api.data.model.BudgetGroup;
+import org.windmill.api.service.BudgetGroupService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.java.Log;
 
 @RestController
-@Tag(name = "Account Types")
-@RequestMapping("/api/accounttypes/")
+@Tag(name = "Budgets")
+@RequestMapping("/api/budgets/groups/")
 @Log
-public class AccountTypeController {
+public class BudgetGroupController {
 
 	@Autowired
-	private AccountTypeService accountTypeService;
+	private BudgetGroupService budgetGroupService;
 
 	@GetMapping(produces = "application/json")
-	public List<AccountType> list() {
+	public List<BudgetGroup> list() {
 		try {
-			return accountTypeService.list();
+			return budgetGroupService.list();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,9 +37,9 @@ public class AccountTypeController {
 	}
 
 	@PutMapping(value = "{id}", consumes = "application/json", produces = "application/json")
-	public AccountType update(@PathVariable("id") Long id, @RequestBody AccountType accountType) {
+	public BudgetGroup update(@PathVariable("id") Long id, @RequestBody BudgetGroup budgetGroup) {
 		try {
-			return accountTypeService.update(id, accountType);
+			return budgetGroupService.update(id, budgetGroup);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,9 +48,9 @@ public class AccountTypeController {
 	}
 
 	@PostMapping(consumes = "application/json", produces = "application/json")
-	public AccountType create(@RequestBody AccountType accountType) {
+	public BudgetGroup create(@RequestBody BudgetGroup budgetGroup) {
 		try {
-			return accountTypeService.create(accountType);
+			return budgetGroupService.create(budgetGroup);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

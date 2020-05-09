@@ -1,0 +1,16 @@
+0	Checking	TRUE	0	0
+1	Savings	TRUE	1	0
+2	Sapphire	TRUE	2	1
+3	United Mileage Plus	FALSE	2	1
+4	Delta Sky Miles Gold	FALSE	2	6
+5	AAdvantage	FALSE	2	2
+6	No Hassle	FALSE	2	5
+7	Thank You Preferred	FALSE	2	2
+8	ROTH IRA	TRUE	3	3
+9	401k	TRUE	3	4
+10	Investment	TRUE	5	3
+11	HSA Investment	TRUE	4	3
+12	HSA	TRUE	4	10
+13	FSA	TRUE	4	11
+14	SuperFleet	TRUE	2	9
+15	Lux	TRUE	2	8

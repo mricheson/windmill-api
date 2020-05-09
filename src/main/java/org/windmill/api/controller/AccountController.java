@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.windmill.api.data.model.AccountType;
-import org.windmill.api.service.AccountTypeService;
+import org.windmill.api.data.model.Account;
+import org.windmill.api.service.AccountService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.java.Log;
 
 @RestController
-@Tag(name = "Account Types")
-@RequestMapping("/api/accounttypes/")
+@RequestMapping("/api/accounts/")
+@Tag(name = "Accounts")
 @Log
-public class AccountTypeController {
+public class AccountController {
 
 	@Autowired
-	private AccountTypeService accountTypeService;
+	private AccountService accountService;
 
 	@GetMapping(produces = "application/json")
-	public List<AccountType> list() {
+	public List<Account> list() {
 		try {
-			return accountTypeService.list();
+			return accountService.list();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,9 +37,9 @@ public class AccountTypeController {
 	}
 
 	@PutMapping(value = "{id}", consumes = "application/json", produces = "application/json")
-	public AccountType update(@PathVariable("id") Long id, @RequestBody AccountType accountType) {
+	public Account update(@PathVariable("id") Long id, @RequestBody Account account) {
 		try {
-			return accountTypeService.update(id, accountType);
+			return accountService.update(id, account);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,9 +48,9 @@ public class AccountTypeController {
 	}
 
 	@PostMapping(consumes = "application/json", produces = "application/json")
-	public AccountType create(@RequestBody AccountType accountType) {
+	public Account create(@RequestBody Account account) {
 		try {
-			return accountTypeService.create(accountType);
+			return accountService.create(account);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

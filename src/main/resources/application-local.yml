@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    # url: jdbc:h2:mem:testdb
+    # driverClassName: org.h2.Driver
+    # username: sa
+    # password: password
+    # database-platform: org.hibernate.dialect.H2Dialect
+    url: jdbc:postgresql://localhost:5432/windmill
+    username: windmill
+    password: windmill
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            redirect-uri: "{baseUrl}/oauth2/callback/{registrationId}"
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/cert
+app:
+  auth:
+    tokenSecret: ${APP_AUTH_SECRET}
+    tokenExpirationMsec: 864000000
+  oauth2:
+    # After successfully authenticating with the OAuth2 Provider,
+    # we'll be generating an auth token for the user and sending the token to the
+    # redirectUri mentioned by the frontend client in the /oauth2/authorize request.
+    # We're not using cookies because they won't work well in mobile clients.
+    authorizedRedirect: http://localhost:3000/oauth2/redirect
+logging:
+   level:
+     root: WARN
