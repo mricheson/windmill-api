@@ -2,7 +2,9 @@ package org.windmill.api.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,9 @@ public class TransactionServiceDefault implements TransactionService {
 
 	@Override
 	public List<Transaction> list() {
-		return transtionRepository.findByMonthBudget(null);
+		return transtionRepository.findByMonthBudget(null).stream()
+				.sorted(Comparator.nullsLast((e1, e2) -> e2.getTransactionDate().compareTo(e1.getTransactionDate())))
+				.collect(Collectors.toList());
 	}
 
 	@Override
